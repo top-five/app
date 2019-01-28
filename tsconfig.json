@@ -14,7 +14,7 @@
     "noImplicitReturns": true,
     "noUnusedLocals": true,
     "skipLibCheck": true,
-    "sourceMap": false, // Something else (Babel?) is creating the necessary source maps.
+    "sourceMap": false,
     "strict": true,
     "target": "es2017"
   },

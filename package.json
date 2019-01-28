@@ -1,13 +1,12 @@
 {
-  "name": "expo-and-typescript",
-  "version": "0.0.0",
-  "description": "React Native using Expo and TypeScript",
+  "name": "top-five",
+  "version": "0.0.1",
+  "description": "These are a few of my favorite things...",
   "author": {
-    "email": "jan@aagaard.net",
-    "name": "Jan Aagaard"
+    "email": "chiplay@mac.com",
+    "name": "Chip Lay"
   },
   "private": false,
-  "license": "MIT",
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
     "android": "expo start --android",
@@ -15,23 +14,34 @@
     "ios": "expo start --ios",
     "lint": "tslint src/**/*.ts src/**/*.tsx",
     "start": "expo start",
-    "validate": "yarn run lint && yarn run check-types"
+    "validate": "yarn run lint && yarn run check-types",
+    "storybook": "start-storybook -p 9001 -c .storybook -s ./appengine/app/pub"
   },
   "dependencies": {
+    "csstype": "^2.6.1",
     "expo": "32.0.1",
     "expo-core": "2.0.0",
     "react": "16.5.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-32.0.0.tar.gz",
     "react-navigation": "3.0.9",
+    "styled-components": "^4.1.3",
+    "styled-system": "^3.2.1",
     "tslib": "1.9.3"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0-0",
+    "@storybook/cli": "^4.1.11",
+    "@storybook/react": "^4.1.11",
     "@types/expo__vector-icons": "6.2.3",
     "@types/fbemitter": "2.0.32",
+    "@types/node": "^10.12.18",
     "@types/react": "16.7.20",
     "@types/react-native": "0.57.32",
     "@types/react-navigation": "3.0.1",
+    "@types/storybook__react": "^4.0.0",
+    "@types/styled-components": "^4.1.6",
+    "@types/styled-system": "^3.1.3",
+    "fork-ts-checker-webpack-plugin": "^0.5.2",
     "tslint": "5.12.1",
     "tslint-eslint-rules": "5.4.0",
     "tslint-react": "3.6.0",

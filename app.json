@@ -1,11 +1,11 @@
 {
   "expo": {
-    "name": "Expo and TypeScript",
-    "description": "Showcase of an Expo app coded in TypeScript.",
-    "slug": "expo-and-typescript",
+    "name": "Top Five",
+    "description": "These are a few of my favorite things...",
+    "slug": "top-five",
     "privacy": "public",
     "sdkVersion": "32.0.0",
-    "version": "1.0.0",
+    "version": "0.0.1",
     "orientation": "portrait",
     "primaryColor": "#fff",
     "icon": "./assets/app-icon.png",
@@ -23,6 +23,6 @@
     "ios": {
       "supportsTablet": true
     },
-    "githubUrl": "https://github.com/janaagaard75/expo-and-typescript"
+    "githubUrl": "https://github.com/top-five/app"
   }
 }

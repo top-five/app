@@ -1,52 +1,41 @@
-import { createAppContainer } from "react-navigation"
-import { createStackNavigator } from "react-navigation"
+import React from 'react';
+import { createAppContainer, createStackNavigator } from 'react-navigation';
 
-import { AccelerometerScreen } from './AccelerometerScreen'
-import { AssetScreen } from './AssetScreen'
-import { AmplitudeScreen } from './AmplitudeScreen'
-import { AudioScreen } from './AudioScreen'
-import { BlurView1Screen } from './BlurView1Screen'
-import { BlurView2Screen } from './BlurView2Screen'
-import { BrightnessScreen } from './BrightnessScreen'
-import { CameraScreen } from './CameraScreen'
-import { ConstantsScreen } from './constants/ConstantsScreen'
-import { FacebookScreen } from './FacebookScreen'
-import { FontScreen } from './FontScreen'
-import { GyroscopeScreen } from './GyroscopeScreen'
-import { LinearGradientScreen } from './LinearGradientScreen'
-import { LocalAuthenticationScreen } from './LocalAuthenticationScreen'
-import { MainScreen } from './MainScreen'
-import { ManifestScreen } from './constants/ManifestScreen'
-import { MapViewScreen } from './MapViewScreen'
-import { PlatformScreen } from './constants/PlatformScreen'
-import { SvgScreen } from './SvgScreen'
-import { SystemFontsScreen } from './constants/SystemFontsScreen'
-import { VectorIconsScreen } from './VectorIconsScreen'
+import { MainScreen } from './MainScreen';
+import { Test } from './Test';
+import { ThemeProvider } from 'styled-components';
+import theme from './components/System/theme';
+import { Font } from 'expo';
 
-const mainNavigator = createStackNavigator({
-  // tslint:disable:object-literal-sort-keys
+const AppNavigator = createStackNavigator({
   Main: { screen: MainScreen },
+  Test: { screen: Test }
+});
 
-  Accelerometer: { screen: AccelerometerScreen },
-  Amplitude: { screen: AmplitudeScreen },
-  Asset: { screen: AssetScreen },
-  Audio: { screen: AudioScreen },
-  BlurView1: { screen: BlurView1Screen },
-  BlurView2: { screen: BlurView2Screen },
-  Brightness: { screen: BrightnessScreen },
-  Camera: { screen: CameraScreen },
-  Constants: { screen: ConstantsScreen },
-  Facebook: { screen: FacebookScreen },
-  Font: { screen: FontScreen },
-  Gyroscope: { screen: GyroscopeScreen },
-  LinearGradient: { screen: LinearGradientScreen },
-  LocalAuthentication: { screen: LocalAuthenticationScreen },
-  Manifest: { screen: ManifestScreen },
-  MapView: { screen: MapViewScreen },
-  Platform: { screen: PlatformScreen },
-  Svg: { screen: SvgScreen },
-  SystemFonts: { screen: SystemFontsScreen },
-  VectorIcons: { screen: VectorIconsScreen }
-})
+const AppContainer = createAppContainer(AppNavigator);
 
-export default createAppContainer(mainNavigator)
+export default class App extends React.Component<{}, { fontLoaded: boolean }> {
+  constructor(props: {}, context?: any) {
+    super(props, context);
+
+    this.state = {
+      fontLoaded: false
+    };
+  }
+
+  public async componentDidMount() {
+    await Font.loadAsync({
+      'Aleo': require('../assets/fonts/Aleo-Regular.ttf')
+    });
+
+    this.setState({ fontLoaded: true });
+  }
+
+  public render() {
+    return (
+      <ThemeProvider theme={theme}>
+        {this.state.fontLoaded ? <AppContainer /> : undefined}
+      </ThemeProvider>
+    );
+  }
+}

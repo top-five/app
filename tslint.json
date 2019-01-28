@@ -50,7 +50,7 @@
     ],
     "semicolon": [
       true,
-      "never"
+      "always"
     ],
     "trailing-comma": [
       true,
@@ -111,6 +111,9 @@
       "always"
     ],
     "object-literal-key-quotes": [
+      false
+    ],
+    "object-literal-sort-keys": [
       false
     ],
     "ter-indent": [

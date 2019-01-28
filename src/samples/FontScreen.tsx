@@ -1,43 +1,41 @@
-import * as React from 'react'
-import { Component } from 'react'
-import { Font } from 'expo'
-import { Text } from 'react-native'
-import { View } from 'react-native'
+import React, { Component } from 'react';
+import { Font } from 'expo';
+import { Text, View } from 'react-native';
 
 interface State {
-  fontLoaded: boolean
+  fontLoaded: boolean;
 }
 
 export class FontScreen extends Component<{}, State> {
   constructor(props: {}, context?: any) {
-    super(props, context)
+    super(props, context);
 
     this.state = {
       fontLoaded: false
-    }
+    };
 
-    this.loadFont()
+    this.loadFont();
   }
 
   public static navigationOptions = {
     title: 'Font'
-  }
+  };
 
   private async loadFont() {
     await Font.loadAsync({
       'PokerKings-regular': require('../assets/PokerKings-Regular.ttf')
-    })
+    });
 
     this.setState({
       fontLoaded: true
-    })
+    });
   }
 
   public render() {
     if (!this.state.fontLoaded) {
       return (
         <Text>Loading font...</Text>
-      )
+      );
     }
 
     return (
@@ -56,9 +54,9 @@ export class FontScreen extends Component<{}, State> {
             textAlign: 'center'
           }}
         >
-          PokerKings regular
+          Top Five
         </Text>
       </View>
-    )
+    );
   }
 }
